@@ -1,7 +1,11 @@
-import '../styles/globals.css'
+import { UserProvider } from '@auth0/nextjs-auth0';
+import Menu from '../components/Menu';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function App({ Component, pageProps }) {
+  return (
+    <UserProvider>
+      <Menu />
+      <Component {...pageProps} />
+    </UserProvider>
+  );
 }
-
-export default MyApp
